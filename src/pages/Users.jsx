@@ -1,20 +1,19 @@
 import React from 'react'
-
+import { NavLink } from 'react-router-dom';
 export default function Users() {
-    const users = [{ id: 1, name: "John Doe", age: 23, bio: "Software Developer" }]
+    const users = [{ id: 1, name: "John Doe", age: 23, bio: "Software Developer" },{ id: 2, name: "Mary Sue", age: 42, bio: "Manager" },{ id: 3, name: "Diana Spenser", age: 21, bio: "SEO" }]
     return (
         <div>
 <nav>
       <ul>
         {users.map((usersItem) => {
           return (
-            <li key={users.name}>
+            <li key={usersItem.id}>
               <NavLink
-                to={menuItem.path}
-                className={styles.link}
+                to={`/users/${usersItem.id}`}
                 style={({ isActive }) => ({ color: isActive ? "red" : "blue" })}
               >
-                {menuItem.title}
+                {usersItem.name}
               </NavLink>
             </li>
           );
